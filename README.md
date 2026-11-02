@@ -1,1 +1,1 @@
-# courses
+<!DOCTYPE html>
