@@ -1,6 +1,6 @@
 
 export default function LocksPage(){
-  const [list,setList]=useState([]); const [f,setF]=useState({name:"",type:"إلكتروني",sizes:"",productPrice:"",note:""})
+  <body [list,setList]=useState([]); const [f,setF]=useState({name:"",type:"إلكتروني",sizes:"",productPrice:"",note:""})
   const load=()=>setList(JSON.parse(localStorage.getItem("quflaty_locks")||"[]")); useEffect(()=>load(),[])
   const save=()=>{ let l=JSON.parse(localStorage.getItem("quflaty_locks")||"[]"); l.push({id:Date.now(),...f,sizes:f.sizes.split(",")}); localStorage.setItem("quflaty_locks",JSON.stringify(l)); setF({name:"",type:"إلكتروني",sizes:"",productPrice:"",note:""}); load() }
   return (<div><h3>إضافة قفل</h3>
