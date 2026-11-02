@@ -11,7 +11,7 @@
 <br><br>
 
 <a href="https://mkh752627-png.github.io/courses/page2.html">
-  <img src="https://img.shields.io/badge/الصفحة_الثانية-1e1e1e?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/n.html-1e1e1e?style=for-the-badge" />
 </a>
 
 <a href="https://mkh752627-png.github.io/courses/about.html">
