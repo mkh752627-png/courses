@@ -16,3 +16,16 @@
     console.log("تبحث عن:", value)
   })
 </script>
+<!-- حط هذا في المكان اللي تبغى يظهر فيه التاريخ -->
+<div id="datetime" style="background:#1e1e1e; color:#fff; padding:10px 15px; border-radius:8px; text-align:center; font-weight:bold; margin:15px 0;"></div>
+
+<script>
+function updateDateTime(){
+  let now = new Date()
+  let date = now.toLocaleDateString('ar-YE', {weekday:'long', year:'numeric', month:'long', day:'numeric'})
+  let time = now.toLocaleTimeString('ar-YE')
+  document.getElementById('datetime').innerHTML = "📅 " + date + " | ⏰ " + time
+}
+setInterval(updateDateTime, 1000)
+updateDateTime()
+</script>
