@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+
 export default function LocksPage(){
   const [list,setList]=useState([]); const [f,setF]=useState({name:"",type:"إلكتروني",sizes:"",productPrice:"",note:""})
   const load=()=>setList(JSON.parse(localStorage.getItem("quflaty_locks")||"[]")); useEffect(()=>load(),[])
