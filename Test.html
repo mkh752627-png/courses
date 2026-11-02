@@ -1,9 +1,18 @@
 <!DOCTYPE html> <title>Abu-Hanin</title>
-<1>
-	<datalist>id</datalist>
-	
-<select name="nAsser" id="Khaled"></select>
-<samp>"nAsser"</samp>
+<div style="max-width:400px; margin:20px auto; position:relative;">
+  <input 
+    type="text" 
+    id="searchBox"
+    placeholder="ابحث هنا..."
+    style="width:100%; padding:12px 45px 12px 15px; border-radius:25px; border:1px solid #333; background:#1e1e1e; color:white; outline:none;"
+  >
+  <span style="position:absolute; right:15px; top:12px;">🔍</span>
+</div>
 
-<script type="module" src="README.md"></script>
-<tbody=<a href="http://Abu-hanin:3002" target="_blank" rel="noopener noreferrer"></a>
+<script>
+  document.getElementById('searchBox').addEventListener('input', function(e){
+    let value = e.target.value.toLowerCase()
+    // هنا تحط كود البحث حقك
+    console.log("تبحث عن:", value)
+  })
+</script>
