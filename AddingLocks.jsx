@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-const API = "http://localhost:3002/api/catalog"
+
 export default function LocksPage(){
   const [list,setList]=useState([]); const [f,setF]=useState({name:"",type:"إلكتروني",sizes:"",productPrice:"",note:""})
   const load=()=>fetch(`${API}/locks`).then(r=>r.json()).then(setList)
