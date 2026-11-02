@@ -26,4 +26,6 @@
 - [page2.html](https://mkh752627-png.github.io/courses/page2.html)
 - [index.html](https://mkh752627-png.github.io/courses/)
 
-> تقدر تعدل من اي مكان - ستوديو دارت او الجوال
+<a href="https://mkh752627-png.github.io/courses/n.html">
+  <img src="https://img.shields.io/badge/لوحة تحكم الفنيين-000?style=for-the-badge" />
+</a>
