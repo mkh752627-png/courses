@@ -1,23 +1,25 @@
-# مشروع تجريبي - courses
-
-مرحبا! هذي صفحاتي اللي سويتها في ستوديو دارت 👇
-
-### 🔥 صفحاتي:
-
-<a href="https://mkh752627-png.github.io/courses/nasser.html">
-  <img src="https://img.shields.io/badge/افتح_صفحتي_الرئيسية-000000?style=for-the-badge&logo=google-chrome&logoColor=white" />
-</a>
-
-<br><br>
-
-<a href="https://mkh752627-png.github.io/courses/page2.html">
-  <img src="https://img.shields.io/badge/notfuond-1e1e1e?style=for-the-badge" />
-</a>
-
-<a href="https://mkh752627-png.github.io/courses/n.html">
-  <img src="https://img.shields.io/badge/-technician1e1e1e?style=for-the-badge" />
-</a>
-
-<a href="https://mkh752627-png.github.io/courses/page2.html">
-  <img src="https://img.shields.io/badge/notfuond-1e1e1e?style=<form action="ابو حنين" method="get"></form>" />
-</a>
+<!DOCTYPE html><tetal>Abul-hanin</tetal>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملفاتي</title>
+<style>
+body{background:#0f0f0f; color:white; font-family:sans-serif; padding:20px; text-align:center}
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(90px,1fr)); gap:20px; max-width:500px; margin:20px auto}
+.item{text-decoration:none; color:white}
+.circle{width:70px; height:70px; border-radius:50%; background:#000; border:1px solid #333; display:grid; place-items:center; font-size:28px; font-weight:bold; margin:0 auto 8px; transition:0.2s}
+.item:hover .circle{transform:translateY(-4px); border-color:#fff; box-shadow:0 5px 15px rgba(255,255,255,0.2)}
+.name{font-size:13px; opacity:0.8}
+</style>
+</head>
+<body>
+<h2>📁 ملفاتي</h2>
+<div class="grid">
+  <a class="item" href="nasser.html"><div class="circle" style="background:#ff5722;">N</div><div class="name">nasser.html</div></a>
+  <a class="item" href="learn.html"><div class="circle" style="background:#4caf50;">L</div><div class="name">learn.html</div></a>
+  <a class="item" href="index.html"><div class="circle" style="background:#2196f3;">I</div><div class="name">index.html</div></a>
+  <a class="item" href="about.html"><div class="circle" style="background:#9c27b0;">A</div><div class="name">about.html</div></a>
+</div>
+</body>
+</html>
