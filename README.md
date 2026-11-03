@@ -15,6 +15,6 @@
 </a>
 
 <a href="https://mkh752627-png.github.io/courses/n.html">
-  <img src="https://img.shields.io/badge/🧠?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/ssd?style=for-the-badge" />
 </a>
 
