@@ -14,18 +14,7 @@
   <img src="https://img.shields.io/badge/n.html-1e1e1e?style=for-the-badge" />
 </a>
 
-<a href="https://mkh752627-png.github.io/courses/about.html">
-  <img src="https://img.shields.io/badge/من_نحن-333333?style=for-the-badge" />
-</a>
-
----
-
-### 📁 كل الملفات:
-
-- [nasser.html](https://mkh752627-png.github.io/courses/nasser.html)
-- [page2.html](https://mkh752627-png.github.io/courses/page2.html)
-- [index.html](https://mkh752627-png.github.io/courses/)
-
 <a href="https://mkh752627-png.github.io/courses/n.html">
-  <img src="https://img.shields.io/badge/لوحة تحكم الفنيين-000?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🧠?style=for-the-badge" />
 </a>
+
