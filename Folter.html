@@ -1,32 +1,48 @@
 <!DOCTYPE html>
-
-<!-- خطوط عربية حلوة -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Tajawal:wght@700&display=swap" rel="stylesheet">
-
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملفاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
 <style>
-.tab-title{
-  font-family: 'Tajawal', sans-serif; /* غير الخط من هنا */
-  background: #ff5722; /* غير اللون من هنا */
-  color: white;
-  padding: 10px 30px;
-  border-radius: 18px 18px 0 0; /* يخليه كأنه تاب */
-  display: inline-block;
-  font-size: 22px;
-  margin-bottom: -1px;
-  border: 1px solid #333;
-  border-bottom: none;
-}
-.tab-line{
-  height: 3px;
-  background: #ff5722; /* نفس لون التاب */
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto 20px;
-  border-radius: 0 0 10px 10px;
-}
+*{box-sizing:border-box}
+body{margin:0; background:#0f0f0f; color:white; font-family:'Cairo',sans-serif; padding:15px; min-height:100vh}
+.tab-title{font-family:'Cairo'; background:#ff5722; color:white; padding:10px 25px; border-radius:16px 16px 0 0; display:inline-block; font-size:clamp(16px, 4vw, 22px); border:1px solid #333; border-bottom:none}
+.tab-line{height:3px; background:#ff5722; width:100%; max-width:500px; margin:0 auto 20px; border-radius:3px}
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(85px, 1fr)); gap:15px; max-width:500px; margin:0 auto; width:100%}
+.item{text-decoration:none; color:white; text-align:center}
+.circle{width:clamp(60px, 18vw, 75px); height:clamp(60px, 18vw, 75px); border-radius:50%; background:#000; border:1px solid #333; display:grid; place-items:center; font-size:clamp(20px, 5vw, 28px); font-weight:bold; margin:0 auto 8px; transition:0.2s}
+.item:hover .circle{transform:translateY(-3px); border-color:#fff}
+.name{font-size:clamp(11px, 3vw, 13px); opacity:0.8; word-break:break-all}
+#search{width:100%; max-width:500px; margin:15px auto; display:block; padding:12px 15px; border-radius:25px; border:1px solid #333; background:#1e1e1e; color:white; outline:none; font-family:'Cairo'}
+@media (max-width:380px){.grid{grid-template-columns:repeat(3, 1fr); gap:10px}}
 </style>
+</head>
+<body>
 
-<div style="text-align:center; margin-top:20px;">
+<div style="text-align:center;">
   <div class="tab-title">📁 ملفات ناصر</div>
   <div class="tab-line"></div>
 </div>
+
+<input id="search" placeholder="🔍 ابحث عن ملف..." oninput="filterFiles(this.value)">
+
+<div class="grid" id="grid">
+  <a class="item" href="nasser.html"><div class="circle" style="background:#ff5722;">N</div><div class="name">nasser.html</div></a>
+  <a class="item" href="learn.html"><div class="circle" style="background:#4caf50;">L</div><div class="name">learn.html</div></a>
+  <a class="item" href="index.html"><div class="circle" style="background:#2196f3;">I</div><div class="name">index.html</div></a>
+  <a class="item" href="files.html"><div class="circle" style="background:#9c27b0;">F</div><div class="name">files.html</div></a>
+</div>
+
+<script>
+function filterFiles(v){
+  v=v.toLowerCase()
+  document.querySelectorAll('.item').forEach(el=>{
+    el.style.display = el.textContent.toLowerCase().includes(v) ? '' : 'none'
+  })
+}
+</script>
+
+</body>
+</html>
