@@ -16,9 +16,9 @@ body{background:#0f0f0f; color:white; font-family:sans-serif; padding:20px; text
 <body>
 <h2>📁 ملفاتي</h2>
 <div class="grid">
-  <a class="item" href="nasser.html"><div class="circle" style="background:#ff5722;">N</div><div class="name">nasser.html</div></a>
-  <a class="item" href="learn.html"><div class="circle" style="background:#4caf50;">L</div><div class="name">learn.html</div></a>
-  <a class="item" href="index.html"><div class="circle" style="background:#2196f3;">I</div><div class="name">index.html</div></a>
+  <a class="item" href="index.html"><div class="circle" style="background:#ff5722;">N</div><div class="name">gg.html</div></a>
+  <a class="item" href="n.html"><div class="circle" style="background:#4caf50;">T</div><div class="name">Technician</div></a>
+  <a class="item" href="Test.html"><div class="circle" style="background:#2196f3;">t</div><div class="name">test</div></a>
   <a class="item" href="about.html"><div class="circle" style="background:#9c27b0;">A</div><div class="name">about.html</div></a>
 </div>
 </body>
