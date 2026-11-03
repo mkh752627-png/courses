@@ -1,32 +1,69 @@
 <!DOCTYPE html> <title>Abu-Hanin</title>
-<div style="max-width:400px; margin:20px auto; position:relative;">
-  <input 
-    type="text" 
-    id="searchBox"
-    placeholder="ابحث هنا..."
-    style="width:100%; padding:12px 45px 12px 15px; border-radius:25px; border:1px solid #333; background:#1e1e1e; color:white; outline:none;"
-  >
-  <span style="position:absolute; right:15px; top:12px;">🔍</span>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>افهم المصطلحات</title>
+<style>
+  body{background:#0f0f0f; color:white; font-family:sans-serif; padding:20px; line-height:1.8}
+  .box{background:#1e1e1e; border:1px solid #333; border-radius:12px; padding:15px; margin:15px 0}
+  .term{color:#facc15; font-weight:bold}
+  code{background:#000; padding:2px 6px; border-radius:4px; color:#4ade80}
+</style>
+</head>
+<body>
+
+<h1>📚 صفحة افهم فيها المصطلحات</h1>
+
+<div class="box">
+  <span class="term">Repository (ريبو):</span> هو مشروعك كامل في قيثب، مثل مجلد `courses`
 </div>
 
-<script>
-  document.getElementById('searchBox').addEventListener('input', function(e){
-    let value = e.target.value.toLowerCase()
-    // هنا تحط كود البحث حقك
-    console.log("تبحث عن:", value)
-  })
-</script>
-<!-- حط هذا في المكان اللي تبغى يظهر فيه التاريخ -->
-<div id="datetime" style="background:#1e1e1e; color:#fff0; padding:10px 15px; border-radius:8px; text-align:center; font-weight:bold; margin:15px 0;"></div>
+<div class="box">
+  <span class="term">Commit:</span> حفظ التغييرات، كأنك تقول "حفظت النسخة هذي"
+</div>
 
-<script>
-function updateDateTime(){
-  let now = new Date()
-  let date = now.toLocaleDateString('ar-YE', {weekday:'long', year:'numeric', month:'long', day:'numeric'})
-  let time = now.toLocaleTimeString('ar-YE')
-  document.getElementById('datetime').innerHTML = "📅 " + date + " | ⏰ " + time
-}
-setInterval(updateDateTime, 1000)
-updateDateTime()
-</script>
+<div class="box">
+  <span class="term">Push:</span> رفع الحفظ من لابتوبك الى قيثب عشان يصير اونلاين
+</div>
 
+<div class="box">
+  <span class="term">Pages / github.io:</span> الرابط اللي يخلي صفحتك تشتغل من اي مكان
+</div>
+
+<div class="box">
+  <span class="term">&lt;div&gt;:</span> صندوق تحط فيه اي شي، هو اللي سوينا به الكروت السوداء
+</div>
+
+<div class="box">
+  <span class="term">&lt;h1&gt; - &lt;h3&gt;:</span> عناوين، h1 كبير، h3 اصغر
+</div>
+
+<div class="box">
+  <span class="term">&lt;p&gt;:</span> فقرة كتابة عادية
+</div>
+
+<div class="box">
+  <span class="term">&lt;input&gt;:</span> مربع كتابة، مثل مربع البحث اللي سألت عنه
+</div>
+
+<div class="box">
+  <span class="term">&lt;button&gt;:</span> زر يضغط عليه المستخدم
+</div>
+
+<div class="box">
+  <span class="term">style:</span> الشكل واللون، مثلا <code>background:#000</code> يعني خلفية سوداء
+</div>
+
+<div class="box">
+  <span class="term">&lt;script&gt;:</span> مكان كود الجافاسكريبت، مثل كود التاريخ والوقت اللي يتحرك
+</div>
+
+<hr>
+
+<h2>جرب تعدل هنا:</h2>
+<input id="myInput" placeholder="اكتب اي شي هنا" style="width:100%;padding:10px;border-radius:8px;border:none;background:#222;color:white">
+<button onclick="document.getElementById('myInput').value='تعلمت المصطلح!'" style="margin-top:10px;padding:10px 20px;border-radius:8px;border:none;cursor:pointer">اضغطني</button>
+
+</body>
+</html>
