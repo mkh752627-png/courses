@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+  <html lang="ar" dir="rtl">
 import 'package:material_ui/material_ui.dart';
 
 void main() {
