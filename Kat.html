@@ -67,6 +67,59 @@
             <li><a href="#" onclick="showSection('settings-section')">الإعدادات</a></li>
         </ul>
     </aside>
+    <!-- محتوى الصفحة الذي يتغير حسب الزر -->
+    <div class="main-content">
+        
+        <!-- قسم الرئيسية -->
+        <div id="home-section" class="tab-content" style="display: block;">
+            <h2>مرحباً بك في الصفحة الرئيسية</h2>
+            <p>هذا محتوى الرئيسية يظهر هنا.</p>
+        </div>
+
+        <!-- قسم الطلبات -->
+        <div id="orders-section" class="tab-content" style="display: none;">
+            <h2>قسم الطلبات</h2>
+            <p>هنا تظهر تفاصيل وجدول الطلبات.</p>
+        </div>
+
+        <!-- قسم الإعدادات -->
+        <div id="settings-section" class="tab-content" style="display: none;">
+            <h2>قسم الإعدادات</h2>
+            <p>هنا تظهر خيارات إعدادات الحساب.</p>
+        </div>
+
+    </div>
+    <aside id="sidebar">
+        <button onclick="toggleList()">القائمة ▼</button>
+        <ul id="menu-list" style="display: none;">
+            <li><a href="#" onclick="showSection('home-section')">الرئيسية</a></li>
+            <li><a href="#" onclick="showSection('orders-section')">الطلبات</a></li>
+            <li><a href="#" onclick="showSection('settings-section')">الإعدادات</a></li>
+        </ul>
+    </aside>
+    <script>
+        // دالة إظهار وإخفاء القائمة المنسدلة نفسها
+        function toggleList() {
+            var list = document.getElementById("menu-list");
+            if (list.style.display === "none") {
+                list.style.display = "block";
+            } else {
+                list.style.display = "none";
+            }
+        }
+
+        // دالة تبديل المحتوى (التبويبات)
+        function showSection(sectionId) {
+            // 1. نخفي جميع الأقسام التي تحمل كلاس tab-content
+            var sections = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+
+            // 2. نظهر القسم المطلوب فقط الذي تم الضغط عليه
+            document.getElementById(sectionId).style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
