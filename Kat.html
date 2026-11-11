@@ -3,93 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تعليم انشاء الصفحات</title>
-</head>
-
-               <aside id="sidebar">
-        <!-- 1. حولنا العنوان إلى زر -->
-        <button onclick="toggleList()">القائمة ▼</button>
-
-        <!-- 2. أعطينا القائمة id حتى نتحكم في إظهارها وإخفائها -->
-        <ul id="menu-list" style="display: none;">
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">الطلبات</a></li>
-            <li><a href="#">الإعدادات</a></li>
-        </ul>
-    </aside>
-    <script>
-        function toggleList() {
-            var list = document.getElementById("menu-list");
-            if (list.style.display === "none") {
-                list.style.display = "block"; // إظهار
-            } else {
-                list.style.display = "none";  // إخفاء
-            }
+    <title>لوحة التحكم</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-    </script>
-                <body>
-    <!-- محتوى الصفحة الذي يتغير حسب الزر -->
-    <div class="main-content">
+
+        body {
+            background-color: #f4f6f9;
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* القائمة الجانبية */
+        .sidebar {
+            width: 250px;
+            background-color: #1e293b;
+            color: #fff;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .sidebar button.menu-toggle {
+            background-color: #334155;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: right;
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 10px 12px;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #334155;
+            color: #fff;
+        }
+
+        /* المحتوى الرئيسي */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            width: 100%;
+        }
+
+        /* تنسيق الأقسام (التبويبات) */
+        .tab-content {
+            display: none;
+        }
+
+        /* بطاقات الإحصائيات */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        /* جدول البيانات */
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: right;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- القائمة الجانبية -->
+    <aside id="sidebar" class="sidebar">
+        <!-- زر إظهار وإخفاء القائمة -->
+        <button class="menu-toggle" onclick="toggleList()">القائمة ▼</button>
         
-        <!-- قسم الرئيسية -->
-        <div id="home-section" class="tab-content" style="display: block;">
-            <h2>مرحباً بك في الصفحة الرئيسية</h2>
-            <p>هذا محتوى الرئيسية يظهر هنا.</p>
-        </div>
-
-        <!-- قسم الطلبات -->
-        <div id="orders-section" class="tab-content" style="display: none;">
-            <h2>قسم الطلبات</h2>
-            <p>هنا تظهر تفاصيل وجدول الطلبات.</p>
-        </div>
-
-        <!-- قسم الإعدادات -->
-        <div id="settings-section" class="tab-content" style="display: none;">
-            <h2>قسم الإعدادات</h2>
-            <p>هنا تظهر خيارات إعدادات الحساب.</p>
-        </div>
-
-    </div>
-    <aside id="sidebar">
-        <button onclick="toggleList()">القائمة ▼</button>
-        <ul id="menu-list" style="display: none;">
+        <!-- روابط القائمة -->
+        <ul id="menu-list">
             <li><a href="#" onclick="showSection('home-section')">الرئيسية</a></li>
             <li><a href="#" onclick="showSection('orders-section')">الطلبات</a></li>
             <li><a href="#" onclick="showSection('settings-section')">الإعدادات</a></li>
         </ul>
     </aside>
-    <!-- محتوى الصفحة الذي يتغير حسب الزر -->
+
+    <!-- المحتوى الرئيسي (التبويبات) -->
     <div class="main-content">
         
-        <!-- قسم الرئيسية -->
+        <!-- 1. قسم الرئيسية (يظهر افتراضياً) -->
         <div id="home-section" class="tab-content" style="display: block;">
-            <h2>مرحباً بك في الصفحة الرئيسية</h2>
-            <p>هذا محتوى الرئيسية يظهر هنا.</p>
+            <h2 style="margin-bottom: 20px;">لوحة التحكم - الرئيسية</h2>
+            
+            <!-- البطاقات -->
+            <div class="cards">
+                <div class="card">
+                    <h3>إجمالي المبيعات</h3>
+                    <p>12,500</p>
+                </div>
+                <div class="card">
+                    <h3>الطلبات الجديدة</h3>
+                    <p>48</p>
+                </div>
+            </div>
+
+            <!-- الجدول -->
+            <div class="table-container">
+                <h3>أحدث العمليات</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الرقم</th>
+                            <th>الاسم</th>
+                            <th>الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>أحمد</td>
+                            <td>مكتمل</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>سالم</td>
+                            <td>قيد التنفيذ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <!-- قسم الطلبات -->
-        <div id="orders-section" class="tab-content" style="display: none;">
-            <h2>قسم الطلبات</h2>
-            <p>هنا تظهر تفاصيل وجدول الطلبات.</p>
+        <!-- 2. قسم الطلبات -->
+        <div id="orders-section" class="tab-content">
+            <h2 style="margin-bottom: 20px;">إدارة الطلبات</h2>
+            <div class="table-container">
+                <p>هنا تظهر قائمة جميع الطلبات الواردة بالتفصيل.</p>
+            </div>
         </div>
 
-        <!-- قسم الإعدادات -->
-        <div id="settings-section" class="tab-content" style="display: none;">
-            <h2>قسم الإعدادات</h2>
-            <p>هنا تظهر خيارات إعدادات الحساب.</p>
+        <!-- 3. قسم الإعدادات -->
+        <div id="settings-section" class="tab-content">
+            <h2 style="margin-bottom: 20px;">إعدادات الحساب</h2>
+            <div class="table-container">
+                <p>هنا يمكنك تعديل بيانات الحساب والإعدادات العامة.</p>
+            </div>
         </div>
 
     </div>
-    <aside id="sidebar">
-        <button onclick="toggleList()">القائمة ▼</button>
-        <ul id="menu-list" style="display: none;">
-            <li><a href="#" onclick="showSection('home-section')">الرئيسية</a></li>
-            <li><a href="#" onclick="showSection('orders-section')">الطلبات</a></li>
-            <li><a href="#" onclick="showSection('settings-section')">الإعدادات</a></li>
-        </ul>
-    </aside>
+
+    <!-- أكواد الجافاسكريبت للتحكم بالتفاعل -->
     <script>
-        // دالة إظهار وإخفاء القائمة المنسدلة نفسها
+        // دالة إظهار وإخفاء عناصر القائمة
         function toggleList() {
             var list = document.getElementById("menu-list");
             if (list.style.display === "none") {
@@ -99,15 +220,15 @@
             }
         }
 
-        // دالة تبديل المحتوى (التبويبات)
+        // دالة التنقل بين التبويبات (الأقسام)
         function showSection(sectionId) {
-            // 1. نخفي جميع الأقسام التي تحمل كلاس tab-content
+            // إخفاء جميع الأقسام
             var sections = document.getElementsByClassName("tab-content");
             for (var i = 0; i < sections.length; i++) {
                 sections[i].style.display = "none";
             }
 
-            // 2. نظهر القسم المطلوب فقط الذي تم الضغط عليه
+            // إظهار القسم المستهدف فقط
             document.getElementById(sectionId).style.display = "block";
         }
     </script>
