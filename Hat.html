@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* القائمة الجانبية المتحركة */
+        .sidebar {
+            width: 250px;
+            background-color: #1e293b;
+            color: #fff;
+            padding: 20px;
+            flex-shrink: 0;
+            position: fixed;
+            height: 100%;
+            right: 0;
+            top: 0;
+            transition: transform 0.3s ease; /* حركة سلسة */
+            z-index: 1000;
+        }
+
+        /* كلاس إخفاء القائمة (تزحزح للخارج جهة اليمين) */
+        .sidebar.hidden {
+            transform: translateX(250px);
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 10px 12px;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #334155;
+            color: #fff;
+        }
+
+        /* المحتوى الرئيسي */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            width: 100%;
+            margin-right: 250px; /* ترك مساحة للقائمة الثابتة يميناً */
+            transition: margin 0.3s ease;
+        }
+
+        /* عندما تختفي القائمة يتوسع المحتوى */
+        .main-content.expanded {
+            margin-right: 0;
+        }
+
+        /* زر فتح وإغلاق القائمة */
+        .menu-btn {
+            background-color: #1e293b;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .menu-btn:hover {
+            background-color: #334155;
+        }
+
+        /* تنسيق الأقسام (التبويبات) */
+        .tab-content {
+            display: none;
+        }
+
+        /* بطاقات الإحصائيات */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        /* جدول البيانات */
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: right;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- القائمة الجانبية -->
+    <aside id="sidebar" class="sidebar">
+        <h2>القائمة الرئيسية</h2>
+        <ul>
+            <li><a href="#" onclick="showSection('home-section')">الرئيسية</a></li>
+            <li><a href="#" onclick="showSection('orders-section')">الطلبات</a></li>
+            <li><a href="#" onclick="showSection('settings-section')">الإعدادات</a></li>
+        </ul>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <div id="main-content" class="main-content">
+        
+        <!-- زر إظهار/إخفاء القائمة -->
+        <button class="menu-btn" onclick="toggleSidebar()">☰ القائمة</button>
+
+        <!-- 1. قسم الرئيسية -->
+        <div id="home-section" class="tab-content" style="display: block;">
+            <h2 style="margin-bottom: 20px;">لوحة التحكم - الرئيسية</h2>
+            
+            <div class="cards">
+                <div class="card">
+                    <h3>إجمالي المبيعات</h3>
+                    <p>12,500</p>
+                </div>
+                <div class="card">
+                    <h3>الطلبات الجديدة</h3>
+                    <p>48</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3>أحدث العمليات</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الرقم</th>
+                            <th>الاسم</th>
+                            <th>الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>أحمد</td>
+                            <td>مكتمل</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>سالم</td>
+                            <td>قيد التنفيذ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 2. قسم الطلبات -->
+        <div id="orders-section" class="tab-content">
+            <h2 style="margin-bottom: 20px;">إدارة الطلبات</h2>
+            <div class="table-container">
+                <p>هنا تظهر قائمة جميع الطلبات الواردة بالتفصيل.</p>
+            </div>
+        </div>
+
+        <!-- 3. قسم الإعدادات -->
+        <div id="settings-section" class="tab-content">
+            <h2 style="margin-bottom: 20px;">إعدادات الحساب</h2>
+            <div class="table-container">
+                <p>هنا يمكنك تعديل بيانات الحساب والإعدادات العامة.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- أكواد الجافاسكريبت للحركة والتبويبات -->
+    <script>
+        // دالة إظهار وإخفاء القائمة الجانبية بحركة انزلاق
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var mainContent = document.getElementById("main-content");
+            
+            sidebar.classList.toggle("hidden");
+            mainContent.classList.toggle("expanded");
+        }
+
+        // دالة التنقل بين التبويبات (الأقسام)
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+            document.getElementById(sectionId).style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
